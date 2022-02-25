@@ -1,12 +1,13 @@
 <script>
     export let name;
     export let label;
-    export let error = 'Something went wrong';
+    export let error = '';
+    export let value = '';
 </script>
 
 <div class="input-field">
     <label for={name}>{label}</label>
-    <input type="text" {name} id={name} autocomplete="off" />
+    <input type="text" bind:value {name} id={name} autocomplete="off" />
     <p>{error}</p>
 </div>
 
