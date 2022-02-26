@@ -39,6 +39,7 @@
 </main>
 
 <style lang="scss">
+    @import '../lib/styles/variable';
     @import '../lib/styles/mixin';
 
     .container {
@@ -68,6 +69,7 @@
             }
         }
         .content {
+            color: $black;
             grid-area: content;
             padding: 20px;
         }
