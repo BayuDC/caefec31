@@ -1,13 +1,15 @@
 <script>
     import { createEventDispatcher } from 'svelte';
 
-    export let hasMenu;
+    export let hasMenu = false;
 
     const dispatch = createEventDispatcher();
 </script>
 
 <div class="header">
-    <h1>Waifuseum</h1>
+    <a href="/">
+        <h1>Waifuseum</h1>
+    </a>
     {#if hasMenu}
         <span on:click={() => dispatch('menuClick')} class="material-icons-outlined">menu</span>
     {/if}

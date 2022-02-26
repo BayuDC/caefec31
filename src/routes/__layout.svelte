@@ -3,7 +3,9 @@
 
     export async function load({ fetch }) {
         try {
-            const res = await fetch(apiUrl + '/auth');
+            const res = await fetch(apiUrl + '/auth', {
+                credentials: 'include',
+            });
             const data = await res.json();
 
             if (!res.ok) throw 0;
