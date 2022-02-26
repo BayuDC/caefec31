@@ -1,11 +1,23 @@
-<div>
+<script>
+    import { createEventDispatcher } from 'svelte';
+
+    export let hasMenu;
+
+    const dispatch = createEventDispatcher();
+</script>
+
+<div class="header">
     <h1>Waifuseum</h1>
+    {#if hasMenu}
+        <span on:click={() => dispatch('menuClick')} class="material-icons-outlined">menu</span>
+    {/if}
 </div>
 
 <style lang="scss">
     @import '../styles/variable';
+    @import '../styles/mixin';
 
-    div {
+    .header {
         background: $black;
         color: $white;
         padding: 0 20px;
@@ -18,6 +30,16 @@
             font-size: 24px;
             font-weight: 700;
             font-style: italic;
+        }
+
+        span {
+            margin-left: auto;
+            font-size: 32px;
+            display: none;
+
+            @include on-tablet {
+                display: inherit;
+            }
         }
     }
 </style>
