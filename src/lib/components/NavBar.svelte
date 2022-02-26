@@ -1,5 +1,6 @@
 <script>
     import NavLink from './NavLink.svelte';
+    import AuthCard from './AuthCard.svelte';
 
     export let expand;
 </script>
@@ -16,6 +17,8 @@
         <NavLink href="/user/new">New User</NavLink>
         <NavLink href="/user/update">Update User</NavLink>
     </NavLink>
+
+    <AuthCard />
 </div>
 
 <style lang="scss">
@@ -25,8 +28,10 @@
     .navbar {
         width: 240px;
         background: $gray;
-        padding: 20px 0;
         box-sizing: border-box;
+        color: $white;
+        display: flex;
+        flex-direction: column;
 
         @include on-tablet {
             position: absolute;

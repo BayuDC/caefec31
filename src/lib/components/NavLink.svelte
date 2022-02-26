@@ -13,7 +13,7 @@
 
 <style lang="scss">
     .links {
-        margin-bottom: 20px;
+        margin-top: 20px;
     }
     a {
         display: flex;
