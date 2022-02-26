@@ -2,12 +2,16 @@
     import '$lib/styles/global.scss';
     import Header from '$lib/components/Header.svelte';
     import NavBar from '$lib/components/NavBar.svelte';
+    import Overlay from '$lib/components/Overlay.svelte';
 
     $: expandNav = false;
 </script>
 
 <main class="container">
     <Header hasMenu={true} on:menuClick={() => (expandNav = !expandNav)} />
+    {#if expandNav}
+        <Overlay on:click={() => (expandNav = !expandNav)} />
+    {/if}
     <NavBar expand={expandNav} />
     <div class="content">
         <slot />
@@ -37,6 +41,11 @@
         }
         & :global(.overlay) {
             grid-area: content;
+            display: none;
+
+            @include on-tablet {
+                display: block;
+            }
         }
         .content {
             grid-area: content;

@@ -1,20 +1,10 @@
 <script>
     export let href;
-    export let parent = false;
 </script>
 
-{#if parent}
-    <div class="links">
-        <slot />
-    </div>
-{:else}
-    <a {href}><slot /></a>
-{/if}
+<a {href}><slot /></a>
 
 <style lang="scss">
-    .links {
-        margin-top: 20px;
-    }
     a {
         display: flex;
         align-items: center;
