@@ -1,1 +1,5 @@
-<h1>Welcome to Waifuseum</h1>
+<script>
+    import Title from '$lib/shared/Title.svelte';
+</script>
+
+<Title>Welcome to Waifuseum</Title>

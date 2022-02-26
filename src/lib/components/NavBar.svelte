@@ -10,6 +10,10 @@
 </script>
 
 <div class="navbar" class:expand>
+    <div class="links">
+        <NavLink href="/">Dashboard</NavLink>
+        <NavLink href="/profile">User Profile</NavLink>
+    </div>
     {#if user.manageContent}
         <div class="links">
             <NavLink href="/picture">Manage Pictures</NavLink>

@@ -22,7 +22,7 @@
     import '$lib/styles/global.scss';
     import Header from '$lib/components/Header.svelte';
     import NavBar from '$lib/components/NavBar.svelte';
-    import Overlay from '$lib/components/Overlay.svelte';
+    import Overlay from '$lib/shared/Overlay.svelte';
 
     $: expandNav = false;
 </script>
@@ -71,7 +71,7 @@
         .content {
             color: $black;
             grid-area: content;
-            padding: 20px;
+            padding: 30px;
         }
     }
 </style>
