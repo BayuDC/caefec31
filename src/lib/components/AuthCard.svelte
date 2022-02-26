@@ -1,5 +1,9 @@
+<script>
+    export let username;
+</script>
+
 <div class="auth-card">
-    <p>Login as <span>Anonymous</span></p>
+    <p>Login as <span>{username}</span></p>
     <a href="/auth/logout" on:click|preventDefault>Logout</a>
 </div>
 

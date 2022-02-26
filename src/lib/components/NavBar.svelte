@@ -1,23 +1,31 @@
 <script>
+    import { page } from '$app/stores';
+
     import NavLink from './NavLink.svelte';
     import AuthCard from './AuthCard.svelte';
 
     export let expand;
+
+    const user = $page.stuff.user;
 </script>
 
 <div class="navbar" class:expand>
-    <div class="links">
-        <NavLink href="/picture">Manage Pictures</NavLink>
-        <NavLink href="/picture/new">New Picture</NavLink>
-        <NavLink href="/picture/update">Update Picture</NavLink>
-    </div>
-    <div class="links">
-        <NavLink href="/user">Manage Users</NavLink>
-        <NavLink href="/user/new">New User</NavLink>
-        <NavLink href="/user/update">Update User</NavLink>
-    </div>
+    {#if user.manageContent}
+        <div class="links">
+            <NavLink href="/picture">Manage Pictures</NavLink>
+            <NavLink href="/picture/new">New Picture</NavLink>
+            <NavLink href="/picture/update">Update Picture</NavLink>
+        </div>
+    {/if}
+    {#if user.manageUser}
+        <div class="links">
+            <NavLink href="/user">Manage Users</NavLink>
+            <NavLink href="/user/new">New User</NavLink>
+            <NavLink href="/user/update">Update User</NavLink>
+        </div>
+    {/if}
 
-    <AuthCard />
+    <AuthCard username={user.username} />
 </div>
 
 <style lang="scss">

@@ -1,3 +1,23 @@
+<script context="module">
+    import { apiUrl } from '$lib/config';
+
+    export async function load({ fetch }) {
+        try {
+            const res = await fetch(apiUrl + '/auth');
+            const data = await res.json();
+
+            if (!res.ok) throw 0;
+
+            return { stuff: data };
+        } catch (err) {
+            return {
+                status: 302,
+                redirect: '/auth',
+            };
+        }
+    }
+</script>
+
 <script>
     import '$lib/styles/global.scss';
     import Header from '$lib/components/Header.svelte';
