@@ -5,7 +5,7 @@
     export let label;
     export let error = '';
     export let value = '';
-    export let required;
+    export let required = false;
 </script>
 
 <div class="form-field">

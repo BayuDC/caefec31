@@ -1,19 +1,47 @@
 <script>
+    import { apiUrl } from '../config';
+
     import FormField from '../shared/FormField.svelte';
     import Button from '../shared/Button.svelte';
+    import Alert from '../shared/Alert.svelte';
+
+    let fileUrl;
+    let sauce;
+    let category;
+
+    $: alert = {};
 </script>
 
-<form on:submit|preventDefault>
-    <FormField name="file" label="File Url" required />
-    <FormField name="sauce" label="Sauce" />
-    <FormField name="category" label="Category" required />
+<form
+    on:submit|preventDefault={async () => {
+        alert = { code: 100, message: 'Processing...' };
+
+        try {
+            const res = await fetch(apiUrl + '/museum', {
+                method: 'post',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ category, sauce, picture: fileUrl }),
+            });
+            const body = await res.json();
+
+            if (!res.ok) {
+                throw { code: res.status, message: body.error };
+            }
+
+            alert = { type: 'success', code: res.status, message: body.picture._id };
+        } catch (err) {
+            alert = { type: 'error', ...err };
+        }
+    }}
+>
+    <FormField bind:value={fileUrl} name="file" label="File Url" required />
+    <FormField bind:value={sauce} name="sauce" label="Sauce" />
+    <FormField bind:value={category} name="category" label="Category" required />
 
     <div class="form-control">
         <Button>Add</Button>
-        <p>
-            <span>100:</span>
-            Processing...
-        </p>
+        <Alert type={alert.type} code={alert.code} message={alert.message} />
     </div>
 </form>
 
@@ -29,22 +57,8 @@
             display: flex;
             align-items: start;
 
-            p {
+            & :global(p) {
                 margin: auto 0 auto 20px;
-                font-size: 16px;
-                font-family: $font-fira;
-                font-weight: 500;
-
-                &.success {
-                    color: $green;
-                }
-                &.error {
-                    color: $pink;
-                }
-
-                span {
-                    font-weight: 700;
-                }
             }
         }
     }
