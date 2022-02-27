@@ -5,5 +5,6 @@
 
     .title {
         font-family: $font-fira;
+        margin-bottom: 20px;
     }
 </style>
