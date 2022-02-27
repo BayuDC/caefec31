@@ -1,9 +1,11 @@
 <script>
+    export let required = false;
+
     export let name;
     export let value = '';
 </script>
 
-<input type="text" bind:value {name} id={name} autocomplete="off" />
+<input type="text" bind:value {name} id={name} autocomplete="off" {required} />
 
 <style lang="scss">
     @import '../styles/variable';

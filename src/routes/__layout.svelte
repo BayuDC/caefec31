@@ -74,6 +74,10 @@
             color: $black;
             grid-area: content;
             padding: 30px;
+
+            @include on-mobile {
+                padding: 30px 20px;
+            }
         }
     }
 </style>

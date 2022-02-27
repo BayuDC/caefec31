@@ -1,8 +1,7 @@
-<script context="module">
-    export async function load({ url }) {
-        return {
-            status: 403,
-            error: 'Forbidden: ' + url.pathname,
-        };
-    }
+<script>
+    import Title from '$lib/shared/Title.svelte';
+    import PictureNew from '$lib/pages/PictureNew.svelte';
 </script>
+
+<Title>New Picture</Title>
+<PictureNew />

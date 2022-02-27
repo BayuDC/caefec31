@@ -36,8 +36,8 @@
         processing = false;
     }}
 >
-    <FormField bind:value={username} error={usernameErr} name="username" label="Username" />
-    <FormField bind:value={password} error={passwordErr} name="password" label="Password" />
+    <FormField bind:value={username} error={usernameErr} name="username" label="Username" required />
+    <FormField bind:value={password} error={passwordErr} name="password" label="Password" required />
     <Button>
         {#if processing}
             Login...

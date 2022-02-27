@@ -5,14 +5,13 @@
     export let label;
     export let error = '';
     export let value = '';
+    export let required;
 </script>
 
 <div class="form-field">
     <label for={name}>{label}</label>
-    <Input {name} bind:value />
-    {#if error !== false}
-        <p>{error}</p>
-    {/if}
+    <Input {name} bind:value {required} />
+    <p>{error}</p>
 </div>
 
 <style lang="scss">
