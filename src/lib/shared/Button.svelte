@@ -1,4 +1,8 @@
-<button on:click>
+<script>
+    export let disable = false;
+</script>
+
+<button on:click={disable ? e => e.preventDefault() : undefined} class:disable>
     <slot />
 </button>
 
@@ -17,5 +21,10 @@
         color: $white;
 
         padding: 10px 15px;
+
+        &.disable {
+            cursor: not-allowed;
+            background: $gray;
+        }
     }
 </style>

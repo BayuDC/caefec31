@@ -14,7 +14,7 @@
     @import '../styles/variable';
 
     .auth {
-        background: $gray;
+        background: $black2;
         height: 100vh;
         display: flex;
         align-items: center;

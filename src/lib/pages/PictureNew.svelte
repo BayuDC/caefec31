@@ -40,7 +40,7 @@
     <FormField bind:value={category} name="category" label="Category" required />
 
     <div class="form-control">
-        <Button>Add</Button>
+        <Button disable={alert.code == 100}>Add</Button>
         <Alert type={alert.type} code={alert.code} message={alert.message} />
     </div>
 </form>

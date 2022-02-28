@@ -38,7 +38,7 @@
 
     .navbar {
         width: 240px;
-        background: $gray;
+        background: $black2;
         box-sizing: border-box;
         color: $white;
         display: flex;
