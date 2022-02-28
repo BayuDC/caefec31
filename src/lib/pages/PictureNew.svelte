@@ -3,6 +3,7 @@
 
     import FormField from '../shared/FormField.svelte';
     import Button from '../shared/Button.svelte';
+    import Input from '../shared/Input.svelte';
     import Alert from '../shared/Alert.svelte';
 
     let fileUrl;
@@ -35,9 +36,15 @@
         }
     }}
 >
-    <FormField bind:value={fileUrl} name="file" label="File Url" required />
-    <FormField bind:value={sauce} name="sauce" label="Sauce" />
-    <FormField bind:value={category} name="category" label="Category" required />
+    <FormField name="file" label="File Url">
+        <Input name="file" bind:value={fileUrl} required />
+    </FormField>
+    <FormField name="sauce" label="Sauce">
+        <Input name="sauce" bind:value={sauce} required />
+    </FormField>
+    <FormField name="category" label="Category">
+        <Input name="category" bind:value={category} required />
+    </FormField>
 
     <div class="form-control">
         <Button disable={alert.code == 100}>Add</Button>

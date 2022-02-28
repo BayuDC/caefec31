@@ -1,5 +1,6 @@
 <script>
     import Button from '../shared/Button.svelte';
+    import Input from '../shared/Input.svelte';
     import FormField from '../shared/FormField.svelte';
     import { apiUrl } from '../config';
 
@@ -36,8 +37,12 @@
         processing = false;
     }}
 >
-    <FormField bind:value={username} error={usernameErr} name="username" label="Username" required />
-    <FormField bind:value={password} error={passwordErr} name="password" label="Password" required />
+    <FormField name="username" label="Username" error={usernameErr}>
+        <Input name="username" bind:value={username} required />
+    </FormField>
+    <FormField name="password" label="Password" error={passwordErr}>
+        <Input name="password" bind:value={password} required />
+    </FormField>
     <Button>
         {#if processing}
             Login...

@@ -1,16 +1,12 @@
 <script>
-    import Input from './Input.svelte';
-
     export let name;
     export let label;
     export let error = '';
-    export let value = '';
-    export let required = false;
 </script>
 
 <div class="form-field">
     <label for={name}>{label}</label>
-    <Input {name} bind:value {required} />
+    <slot />
     <p>{error}</p>
 </div>
 

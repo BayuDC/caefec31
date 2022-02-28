@@ -1,6 +1,5 @@
 <script>
     export let required = false;
-
     export let name;
     export let value = '';
 </script>
