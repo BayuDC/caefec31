@@ -10,7 +10,7 @@
 <style lang="scss">
     @import '../styles/variable';
 
-    input {
+    :global(input) {
         font-family: $font-source;
         font-weight: 600;
         font-size: 16px;
