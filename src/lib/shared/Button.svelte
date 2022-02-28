@@ -2,7 +2,7 @@
     export let disable = false;
 </script>
 
-<button on:click={disable ? e => e.preventDefault() : undefined} class:disable>
+<button on:click disabled={disable} class:disable>
     <slot />
 </button>
 

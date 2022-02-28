@@ -7,7 +7,9 @@
 <div class="form-field">
     <label for={name}>{label}</label>
     <slot />
-    <p>{error}</p>
+    {#if error !== false}
+        <p>{error}</p>
+    {/if}
 </div>
 
 <style lang="scss">
