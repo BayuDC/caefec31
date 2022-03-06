@@ -65,6 +65,7 @@
             width: 100%;
             max-height: 300px;
             overflow-y: auto;
+            background: $white;
             .value {
                 cursor: pointer;
                 padding: 5px 10px;
