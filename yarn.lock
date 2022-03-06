@@ -488,6 +488,11 @@ postcss@^8.4.6:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+pretty-print-json@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/pretty-print-json/-/pretty-print-json-1.2.3.tgz#03c37f72232d5dd4f1c55450a0075a1f554d0048"
+  integrity sha512-yjK6cDL0545aOvzPJdqISdLLBaKJDUprYu31lxZ9UU53KE29niqp5W6fqHWUfFosAIcC6OX+K1zHxfEa9V6Juw==
+
 readdirp@~3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.6.0.tgz#74a370bd857116e245b29cc97340cd431a02a6c7"
