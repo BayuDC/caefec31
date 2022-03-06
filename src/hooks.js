@@ -1,4 +1,4 @@
-import { apiUrl } from '$lib/config';
+import { baseUrl, apiUrl } from '$lib/config';
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
@@ -9,10 +9,10 @@ export async function handle({ event, resolve }) {
         });
 
         if (!res.ok && event.url.pathname != '/auth') {
-            return Response.redirect(event.url.origin + '/auth');
+            return Response.redirect(baseUrl + '/auth');
         }
         if (res.ok && event.url.pathname == '/auth') {
-            return Response.redirect(event.url.origin);
+            return Response.redirect(baseUrl);
         }
 
         return await resolve(event);
