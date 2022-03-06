@@ -1,30 +1,61 @@
 <script>
+    import { apiUrl } from '../config';
+
     import FormField from '../shared/FormField.svelte';
     import ComboBox from '../shared/ComboBox.svelte';
     import Button from '../shared/Button.svelte';
     import Input from '../shared/Input.svelte';
+    import Alert from '../shared/Alert.svelte';
+
+    let method = '';
+    let path = '';
+
+    $: alert = {};
+
+    const send = async () => {
+        alert = { message: 'Sending...' };
+
+        method = method || 'GET';
+        path = path || '/';
+        path = path[0] != '/' ? '/' + path : path;
+
+        const res = await fetch(apiUrl + path, {
+            method,
+            credentials: 'include',
+        });
+
+        let type = '';
+        if (String(res.status)[0] == 2) type = 'success';
+        if (String(res.status)[0] == 4) type = 'error';
+
+        alert = {
+            code: res.status,
+            message: res.statusText,
+            type,
+        };
+    };
 </script>
 
 <main>
     <div class="request">
         <FormField name="method" label="Method" error={false}>
-            <ComboBox values={['GET', 'POST', 'PUT', 'DELETE']} />
+            <ComboBox bind:value={method} values={['GET', 'POST', 'PUT', 'DELETE']} />
         </FormField>
         <FormField name="path" label="Path" error={false}>
-            <Input name="path" required />
+            <Input bind:value={path} name="path" required />
         </FormField>
     </div>
     <div class="response">
         <FormField label="Result" error={false}>
-            <div class="wrapper">
-                <!--  -->
+            <div class="result">
+                <Alert type={alert.type} code={alert.code} message={alert.message} />
             </div>
         </FormField>
     </div>
     <div class="action">
         <FormField label="Action">
             <div>
-                <Button>Send</Button>
+                <Button on:click={send}>Send</Button>
             </div>
         </FormField>
     </div>
@@ -45,8 +76,9 @@
             gap: 10px;
         }
         .response {
-            .wrapper {
+            .result {
                 border: 1px solid $black;
+                padding: 10px;
                 min-height: 300px;
             }
         }
