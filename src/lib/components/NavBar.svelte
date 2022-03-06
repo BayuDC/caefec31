@@ -13,6 +13,7 @@
     <div class="links">
         <NavLink href="/">Dashboard</NavLink>
         <NavLink href="/profile">User Profile</NavLink>
+        <NavLink href="/fetch">Manual Fetch</NavLink>
     </div>
     {#if user.manageContent}
         <div class="links">
