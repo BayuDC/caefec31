@@ -1,2 +1,2 @@
-export const apiUrl = 'http://localhost:8080';
-export const baseUrl = 'http://localhost:3000';
+export const apiUrl = 'https://api.waifuseum.my.id';
+export const baseUrl = 'https://admin.waifuseum.my.id';
